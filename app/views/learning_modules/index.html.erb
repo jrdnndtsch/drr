@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Learning Modules</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Image</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @learning_modules.each do |learning_module| %>
+      <tr>
+        <td><%= learning_module.title %></td>
+        <td><%= learning_module.description %></td>
+        <td><%= image_tag learning_module.image.url %></td>
+        <td><%= link_to 'Show', learning_module %></td>
+        <td><%= link_to 'Edit', edit_learning_module_path(learning_module) %></td>
+        <td><%= link_to 'Destroy', learning_module, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Learning module', new_learning_module_path %>

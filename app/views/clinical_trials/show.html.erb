@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @clinical_trial.title %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @clinical_trial.image %>
+</p>
+
+<p>
+  <strong>Pdf:</strong>
+  <%= @clinical_trial.pdf %>
+</p>
+
+<%= link_to 'Edit', edit_clinical_trial_path(@clinical_trial) %> |
+<%= link_to 'Back', clinical_trials_path %>

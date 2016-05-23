@@ -1,0 +1,29 @@
+<%= form_for(@skin_diet) do |f| %>
+  <% if @skin_diet.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@skin_diet.errors.count, "error") %> prohibited this skin_diet from being saved:</h2>
+
+      <ul>
+      <% @skin_diet.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div>
+  <div class="field">
+    <%= f.label :pdf %>
+    <%= f.file_field :pdf %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
