@@ -25,7 +25,46 @@
     <% end %>
   </tbody>
 </table>
+<iframe src="http://s3.amazonaws.com/drroebuck/clinical_trials/pdfs/000/000/001/original/CAIS-app-proposal.pdf?1464038032#toolbar=0&navpanes=0&scrollbar=0" width="800" height="500" style="border:none;" frameborder="0">
 
 <br>
 
 <%= link_to 'New Clinical trial', new_clinical_trial_path %>
+
+<script>
+console.log('pdf working')
+    // URL of PDF document
+    var url = 'http://s3.amazonaws.com/drroebuck/clinical_trials/pdfs/000/000/001/original/CAIS-app-proposal.pdf?1464038032';
+
+    // Asynchronous download PDF
+    PDFJS.getDocument(url)
+      .then(function(pdf) {
+        return pdf.getPage(1);
+      })
+      .then(function(page) {
+
+  // Set scale (zoom) level
+  var scale = 1.5;
+
+  // Get viewport (dimensions)
+  var viewport = page.getViewport(scale);
+
+  // Get div#the-svg
+  var container = document.getElementById('the-svg');
+
+  // Set dimensions
+  container.style.width = viewport.width + 'px';
+  container.style.height = viewport.height + 'px';
+
+  // SVG rendering by PDF.js
+  page.getOperatorList()
+    .then(function (opList) {
+      var svgGfx = new PDFJS.SVGGraphics(page.commonObjs, page.objs);
+      return svgGfx.getSVG(opList, viewport);
+    })
+    .then(function (svg) {
+      container.appendChild(svg);
+    });
+
+});
+</script>

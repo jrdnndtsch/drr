@@ -20,6 +20,7 @@ class TestsController < ApplicationController
 
   # GET /tests/1/edit
   def edit
+    @question = @test.questions.all
   end
 
   # POST /tests
@@ -41,6 +42,7 @@ class TestsController < ApplicationController
   # PATCH/PUT /tests/1
   # PATCH/PUT /tests/1.json
   def update
+
     respond_to do |format|
       if @test.update(test_params)
         format.html { redirect_to @test, notice: 'Test was successfully updated.' }
