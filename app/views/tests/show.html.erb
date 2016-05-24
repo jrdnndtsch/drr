@@ -10,5 +10,12 @@
   <%= @test.learning_module %>
 </p>
 
+<% @test.questions.each do |question| %>
+    <p><%= question.title %></p>
+    <% question.answers.each do |answer| %>
+        <p><%= answer.title %></p>
+    <% end %>
+<% end %>
+
 <%= link_to 'Edit', edit_test_path(@test) %> |
 <%= link_to 'Back', tests_path %>

@@ -10,7 +10,7 @@
 	  <%= f.submit %>
 	</div>
 	<%= f.fields_for :answers do |builder| %>
-	  <%= render partial: 'answer_fields', :locals => {:f => builder, :option => 'test'}  %>
+	  <%= render 'answer_fields', f: builder %>
 	<% end %>
 	<%= link_to_add_fields "Add Answer", f, :answers %>
 </fieldset>
