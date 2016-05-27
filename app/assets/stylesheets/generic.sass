@@ -1,0 +1,251 @@
+html
+	:box-sizing border-box
+*, *:before, *:after
+	:box-sizing inherit
+body
+	:margin 0	
+	:letter-spacing 0.5px
+	:font-family 'Arial', sans-serif
+p
+	:line-height 32px
+.clearfix:after 
+	:visibility hidden
+	:display block
+	:font-size 0
+	:content " "
+	:clear both
+	:height 0
+     
+.clearfix 
+	:display inline-block
+
+* html .clearfix 
+	:height 1%
+.clearfix
+	:display block
+.hidden
+	:visibility hidden
+.hidden-display
+	:display none
+a 
+	:text-decoration none
+p 
+	:font-size 16px	
+ul 
+	:margin 0	
+	:padding 0
+img 
+	:max-width 100%
+.center-text
+	:text-align center
+.main
+	:min-height 100vh
+	:background-size cover
+	:background-position center left
+	:margin 0
+.page
+	:margin-top 12%
+.logged-in 
+	:margin 0
+//grid columns
+$grid-base: 40
+
+=make-column($columns, $grid: $grid-base)
+	:box-sizing border-box
+	:width percentage($columns / $grid)
+
+=make-gutter($left-gutter: 0, $right-gutter: 0, $grid: $grid-base)
+	:margin-left percentage($left-gutter / $grid)
+	:margin-right percentage($right-gutter / $grid)
+
+//adaptive screen sizes
+%make-adaptive
+	@media screen and (min-width: 1170px)
+		// XL
+		:width 1146px
+		:margin
+			:left 12px
+			:right 12px
+	@media screen and (min-width: 960px) and (max-width: 1169px)
+		// LG
+		:width 936px
+		:margin
+			:left 12px
+			:right 12px
+	@media screen and (min-width: 768px) and (max-width: 959px)
+		// MD
+		:width 744px
+		:margin
+			:left 12px
+			:right 12px
+	@media screen and (min-width: 500px) and (max-width: 767px)
+		// SM
+		:width 480px
+		:margin
+			:left 12px
+			:right 12px
+	@media screen and (max-width: 499px)
+		// XS
+		:width auto
+		:margin-left 8px
+		:margin-right 8px
+
+
+=display-for($size: false)
+	@each $screen in $size
+		@if $screen == xl
+			@media screen and (min-width: 1170px)
+				@content
+		@else if $screen == lg
+			@media screen and (min-width: 960px) and (max-width: 1169px)
+				@content
+		@if $screen == md
+			@media screen and (min-width: 768px) and (max-width: 959px)
+				@content
+		@else if $screen == sm
+			@media screen and (min-width: 500px) and (max-width: 767px)
+				@content
+		@else if $screen == xs
+			@media screen and (max-width: 499px)
+				@content
+
+.wrapper
+	@extend %make-adaptive
+	:box-sizing border-box
+	:position relative
+	+display-for(xl lg md sm)
+		:margin 0 auto
+	+display-for(xs)
+		:margin 0
+		:padding 0 12px
+	&--flex
+		:display flex
+		:align-items center
+		:justify-content space-around
+		:flex-flow row wrap
+.wrapper, .wrapper--flex
+	.col
+		&--two
+			+make-column(20)
+			+display-for(sm xs)
+				+make-column(40)
+		&--three
+			+make-column(13.33)
+			+display-for(sm)
+				+make-column(20)
+			+display-for(xs)
+				+make-column(40)
+		&--four
+			+make-column(10)
+			+display-for(sm)
+				+make-column(20)
+			+display-for(xs)
+				+make-column(40)
+		&--five
+			+make-column(8)
+			+display-for(md)
+				+make-column(13.33)
+			+display-for(sm)
+				+make-column(13.33)
+			+display-for(xs)
+				+make-column(20)
+		&--threefourths
+			+make-column(30)
+			+display-for(sm)
+				+make-column(30)
+			+display-for(xs)
+				+make-column(40)
+				+make-column(40)
+		&--half
+			+display-for(xl lg)
+				:width calc(50% - 20px)
+				&:nth-of-type(2n + 1)
+					:margin-right 40px	
+			+display-for(md sm xs)
+				:margin-bottom 20px
+				:width 100%
+				img 
+					:width 100%	
+		&--three-margin
+			+display-for(xl lg)
+				:width calc(33.33% - 20px)
+				&:nth-of-type(2n + 1)
+					:margin-right 0px	
+			+display-for(md sm xs)
+				:margin-bottom 20px
+				:width 100%
+				img 
+					:width 100%
+//COLORS
+$pink : #CF1E53
+$blue : #2E708E
+$grey : #979797
+$black : #222222
+$light-grey : #9B9B9B
+$light-blue : #7EC9E7
+$medium-blue : #47A8CB
+
+
+//TITLES
+
+.title
+	:font-family 'WWF', sans-serif
+	:font-size 40px
+	:color $light-grey
+	:text-transform uppercase
+	:font-weight 100
+	:letter-spacing 2.86px
+	:position relative
+	:text-align center
+	:margin-bottom 80px
+	&:before, &:after
+		:content ' '
+		:height 4px
+		:width 160px
+		:background black
+		:position absolute
+		:left 50%
+		:transform translateX(-50%)
+	&:before
+		:top -10px
+	&:after
+		:bottom -14px	
+		
+
+a.button
+	:background $pink
+	:border 1.5px solid $pink
+	:text-decoration none
+	:color white
+	:font-family 'WWF', sans-serif
+	:letter-spacing 1.4px	
+	:font-weight 100
+	:display inline-block
+	:text-transform uppercase
+	:transition all 0.5s
+	span 
+		:font-size 12px
+	&:hover
+		:background white
+		:border 1.5px solid black
+		:color black
+.button--primary
+	:font-size 22px
+	:letter-spacing 1.5px
+	:text-transform uppercase
+	:padding 6px 14px 8px 14px	
+.button--secondary
+	:padding 4px 8px 6px 10px
+i 
+	:transition all 0.5s
+	&:hover
+		:color $pink
+.content-wrapper
+	:background white
+	:padding 40px 0		
+section
+	:padding 40px 0	
+
+
+
+

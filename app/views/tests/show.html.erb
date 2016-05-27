@@ -1,14 +1,18 @@
-<h1><%= @test.name %></h1>
+<div class="page">
+	<div class="wrapper">
+		<h1 class="center-text"><%= @test.name %></h1>
 
-	<% @test.questions.each do |question| %>
-	    <h2><%= question.title %></h2>
-	    <% question.answers.each do |answer| %>
-	    	<%= radio_button(question.title, answer.question.id, answer.correct) %>
-	    	<%= label_tag answer.title %><br>
-	        <!-- <p><%= answer.title %></p> -->
-	    <% end %>
-	<% end %>
+			<% @test.questions.each do |question| %>
+			    <h2><%= question.title %></h2>
+			    <% question.answers.each do |answer| %>
+			    	<%= radio_button(question.title, answer.question.id, answer.correct) %>
+			    	<%= label_tag answer.title %><br>
+			        <!-- <p><%= answer.title %></p> -->
+			    <% end %>
+			<% end %>
 
-<hr>
-<%= link_to 'Edit', edit_test_path(@test) %> |
-<%= link_to 'Back', tests_path %>
+		<hr>
+		<%= link_to 'Edit', edit_test_path(@test) %> |
+		<%= link_to 'Back', tests_path %>
+	</div>
+</div>

@@ -1,13 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Discover Beauty Inside and Out with Dr. Roebuck's</h1>
-  
-<% @learning_modules.each do |learning_module| %>
-  <%= link_to learning_module_path(learning_module) do%>
-    <%= image_tag learning_module.image.url %>
-  <% end %>  
-  <%= learning_module.title %>
-  <%= link_to 'Learn More', learning_module_path(learning_module), class: 'button'%>
-<% end %>
+<div class="page">
+	<div class="wrapper learning-modules">
+		<h1 class="center-text">Discover Beauty Inside and Out with Dr. Roebuck's</h1>
+		<div class="wrapper--flex">
+			<% @learning_modules.each do |learning_module| %>
+				<div class="col--two">
+				  <%= link_to learning_module_path(learning_module) do%>
+				    <%= image_tag learning_module.image.url %>
+				  <% end %>  
+				</div>
+				<div class="col--two">
+				  <p><%= learning_module.title %></p>
+				  <%= link_to 'Learn More', learning_module_path(learning_module), class: 'button'%>
+				<% end %>		
+				</div>
+		</div>
+		
+	</div>
+</div>
 
 

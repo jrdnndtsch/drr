@@ -9,19 +9,14 @@
  * compiled file so the styles you add here take precedence over styles defined in any styles
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
- *
- *= require_tree .
- *= require_self
  */
- body {
- 	margin: 0;
- }	
- p {
- 	margin: 0;
- }
- .main {
+
+ @import 'generic';
+ @import 'learning_modules';
+
+/* .main {
  	min-height: 100vh;
  	background-size: cover;
  	background-position: center left;
     margin: 0;
- }
+ }*/
