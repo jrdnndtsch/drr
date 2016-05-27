@@ -5,6 +5,9 @@ body {
   font-size: 13px;
   line-height: 18px;
 }
+::-webkit-input-placeholder{
+  color: blue;
+}
 
 img{
   width: 200px;
