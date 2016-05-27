@@ -1,21 +1,26 @@
 <%= form_for(@profile) do |f|%>
-	<div class="field">
-	  <%= f.label :first_name %><br>
-	  <%= f.text_field :first_name %>
+	<div class="first-form" id="first-form">
+		<%= f.hidden_field :first_name, value: @first%>
+		<%= f.hidden_field :last_name, value: @last%>
+		
+		<div class="field">
+		  <%= f.label :address %><br>
+		  <%= f.text_field :address %>
+		</div>
+		<a href="#" class="button" id="next"></a>
 	</div>
-	<div class="field">
-	  <%= f.label :last_name %><br>
-	  <%= f.text_field :last_name %>
+	<div class="second-form" id="second-form">
+		<%= f.text_field :retailer, placeholder: 'Which Retailer Are you Working for?'%>
+		<%= f.text_field :store_number, placeholder: 'Store Number'%>
+		<%= f.text_field :store_name, placeholder: 'Store Name'%>
+		<%= f.text_field :years_experience, placeholder: 'Years of Experience?'%>
+		<%= f.text_field :skin_concern, placeholder: 'Skin Concern'%>
+		<%= f.check_box :email_list%> <p>I give Dr. Roebuck's express consent to send me communication about new products, new courses and brand information.</p>
+		<%= f.check_box :terms%> <p>I have read and agreed to the terms and conditions and privacy policy.</p>
+		<div class="actions">
+		  <%= f.submit 'submit' %>
+		</div>
 	</div>
-	<div class="field">
-	  <%= f.label :phone %><br>
-	  <%= f.text_field :phone %>
-	</div>
-	<div class="field">
-	  <%= f.label :address %><br>
-	  <%= f.text_field :address %>
-	</div>
-	<div class="actions">
-	  <%= f.submit 'submit' %>
-	</div>
+	
+	
 <% end %>

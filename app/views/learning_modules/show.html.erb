@@ -1,16 +1,11 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @learning_module.title %>
-</p>
+<h1><%= @learning_module.title %></h1>
 
 <p>
   <strong>Description:</strong>
   <%= @learning_module.description %>
 </p>
 
-<%= link_to @learning_module.test%>
+<%= link_to 'Take the Test', @learning_module.test%>
 
 <%= link_to 'Edit', edit_learning_module_path(@learning_module) %> |
 <%= link_to 'Back', learning_modules_path %>

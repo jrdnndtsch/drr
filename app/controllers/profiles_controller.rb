@@ -13,6 +13,8 @@ class ProfilesController < ApplicationController
 	# GET /articles/new
 	def new
 	  @profile = Profile.new
+	  @first = params[:first]
+	  @last = params[:last]
 	end
 
 	# GET /articles/1/edit
@@ -23,7 +25,6 @@ class ProfilesController < ApplicationController
 	# POST /articles.json
 	def create
 	  @profile = Profile.new(profile_params)
-
 	  respond_to do |format|
 	    if @profile.save
 	      format.html { redirect_to profiles_path, notice: 'Profile was successfully created.' }
@@ -67,6 +68,6 @@ class ProfilesController < ApplicationController
 
 	  # Never trust parameters from the scary internet, only allow the white list through.
 	  def profile_params
-	    params.require(:profile).permit(:first_name, :last_name, :phone, :address)
+	    params.require(:profile).permit(:first_name, :last_name, :phone, :address, :retailer, :store_number, :store_name, :years_experience, :skin_concern, :email_list, :terms)
 	  end
 end

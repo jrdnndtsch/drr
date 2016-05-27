@@ -6,12 +6,18 @@ Rails.application.routes.draw do
   resources :videos
   resources :skin_diets
   resources :learning_modules
-  devise_for :users
+  # devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   resources :profiles
   # You can have the root of your site routed with "root"
   root 'learning_modules#index'
+
+  devise_for :users, controllers: {
+         registrations: 'my_devise/registrations'
+       }
+
+   get 'questions/test_submission' => 'questions#test_submission'    
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
