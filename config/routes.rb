@@ -18,7 +18,7 @@ Rails.application.routes.draw do
        }
 
    get 'questions/test_submission' => 'questions#test_submission'    
-
+   get 'libraries' => 'pages#libraries'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
