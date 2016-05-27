@@ -1,13 +1,14 @@
 <h1><%= @test.name %></h1>
-<%= form_for() %>
+
 	<% @test.questions.each do |question| %>
-	    <p><%= question.title %></p>
+	    <h2><%= question.title %></h2>
 	    <% question.answers.each do |answer| %>
-	    	<%= radio_button answer.id %>
-	        <p><%= answer.title %></p>
+	    	<%= radio_button(question.title, answer.question.id, answer.correct) %>
+	    	<%= label_tag answer.title %><br>
+	        <!-- <p><%= answer.title %></p> -->
 	    <% end %>
 	<% end %>
-</form>
 
+<hr>
 <%= link_to 'Edit', edit_test_path(@test) %> |
 <%= link_to 'Back', tests_path %>
