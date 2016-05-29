@@ -28,7 +28,7 @@
 </div>
 
 <script>
-	$(document).on('ready page:load', function(){
+	// $(document).on('ready page:change', function(){
 		// Get total number of questions
 		var total_questions = $('.question').length
 		console.log(total_questions)
@@ -40,7 +40,7 @@
 
 		//next button
 		$('.next-question').on('click', function(){
-
+			console.log('now the next')
 			var this_question_group = $('.question-group.active')
 
 			var next_question_group = this_question_group.next();
@@ -61,6 +61,7 @@
 			var percentage = 0;
 			$('.question').each(function(){
 				question_name = $(this).children('input:radio').attr('name')
+				console.log(question_name)
 				input = $("input[type='radio'][name='" +question_name + "']:checked").val()
 				if(input == 'true'){
 					score += 1
@@ -87,5 +88,5 @@
       });
 		});
 
-	});
+	// });
 	</script>
