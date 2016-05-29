@@ -1,4 +1,4 @@
-<div class="form-wrapper">
+<div class="form-wrapper profile">
 	
 	<%= form_for(@profile) do |f|%>
 		<div class="first-form" id="first-form">
@@ -6,12 +6,11 @@
 			<%= f.hidden_field :last_name, value: @last%>
 			
 			<div class="field full">
-			  <%= f.label :address %><br>
-			  <%= f.text_field :address %>
+			  <%= f.text_field :address, placeholder: 'Address' %>
 			</div>
 			<a href="#" class="button button--primary" id="next">next</a>
 		</div>
-		<div class="second-form" id="second-form">
+		<div class="second-form hidden" id="second-form">
 			<div class="field full">
 				<%= f.text_field :retailer, placeholder: 'Which Retailer Are you Working for?'%>
 			</div>
@@ -31,8 +30,9 @@
 					<%= f.text_field :skin_concern, placeholder: 'Skin Concern'%>
 				</div>
 			</div>
-			<%= f.check_box :email_list%> <p>I give Dr. Roebuck's express consent to send me communication about new products, new courses and brand information.</p>
-			<%= f.check_box :terms%> <p>I have read and agreed to the terms and conditions and privacy policy.</p>
+
+			<p><%= f.check_box :email_list%> I give Dr. Roebuck's express consent to send me communication about new products, new courses and brand information.</p>
+			<p><%= f.check_box :terms%> I have read and agreed to the terms and conditions and privacy policy.</p>
 			<div class="actions">
 			  <%= f.submit 'submit', class: 'button button--primary' %>
 			</div>
@@ -41,3 +41,14 @@
 		
 	<% end %>
 </div>
+
+<script>
+$(document).on('ready page:load', function(){
+
+	$('#next').on('click', function(){
+		$('.first-form').addClass('hidden');
+		$('.second-form').removeClass('hidden');
+	});
+});
+	
+</script>
