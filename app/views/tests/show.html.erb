@@ -5,11 +5,13 @@
 			<% @test.questions.in_groups_of(2) do |group| %>
 				<div class="question-group hidden">
 					<% group.compact.each do |question| %>
-				    <h2><%= question.title %></h2>
-				    <% question.answers.each do |answer| %>
-				    	<%= radio_button(question.title, answer.question.id, answer.correct) %>
-				    	<%= label_tag answer.title %><br>
-				    <% end %>
+						<div class="question">
+					    <h2><%= question.title %></h2>
+					    <% question.answers.each do |answer| %>
+					    	<%= radio_button(question.title, answer.question.id, answer.correct) %>
+					    	<%= label_tag answer.title %><br>
+					    <% end %>
+						</div>
 					<% end %>
 				</div>
 			<% end %>
@@ -41,6 +43,18 @@
 					$('.submit-test').removeClass('hidden');
 				}
 			}
+		});
+
+		$('.submit-test').on('click', function(){
+			var score = 0;
+			$('.question').each(function(){
+				question_name = $(this).children('input:radio').attr('name')
+				input = $("input[type='radio'][name='" +question_name + "']:checked").val()
+				if(input == 'true'){
+					score += 1
+				};
+			});
+			console.log(score)
 		});
 
 	});
