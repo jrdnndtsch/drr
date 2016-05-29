@@ -1,14 +1,30 @@
 .devise
+	.form-wrapper
+		:width 600px
+		:margin 0 auto
 	.field
 		:margin-bottom 30px
-	.password
-		:margin-bottom 0
 		input 
 			:padding 10px
 			:width 252px
 			:font-family 'Cochin'
 			:font-size 20px
 			:border 0.5px solid #ccc
+	.full
+		input
+			:width 100%
+	.forget-fields
+		:margin-bottom 0
+		:display inline-block
+		:width 100%
+		.field
+			:float left
+			:border none
+			:width calc(50% - 10px)
+			input
+				:width 100%
+			&:nth-child(1)
+				:margin-right 20px
 	a
 		:color white
 		&:hover
