@@ -4,6 +4,7 @@ class Test < ActiveRecord::Base
 
   has_many :answers, through: :questions
 
+
   # attr_accessible :title, :questions_attributes
   
   accepts_nested_attributes_for :questions, allow_destroy: :true

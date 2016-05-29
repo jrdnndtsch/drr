@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :learning_module_id %><br>
-    <%= f.text_field :learning_module_id %>
+    <%= f.collection_select :learning_module_id, LearningModule.all, :id, :title %>
   </div>
 
   <%= f.fields_for :questions do |builder| %>

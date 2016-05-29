@@ -30,7 +30,6 @@ module Admin
 
     # GET /tests/1/edit
     def edit
-
       # @question = @test.questions.all
     end
 
