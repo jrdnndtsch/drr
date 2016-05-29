@@ -5,14 +5,16 @@ html
 body
 	:margin 0	
 	:letter-spacing 0.5px
-	:font-family 'Arial', sans-serif
+	:color white
+	:font-family 'Cochin', sans-serif
+	:font-weight normal
 p
 	:line-height 32px
 .clearfix::after 
 	:visibility hidden
 	:display block
 	:font-size 0
-	:content "TEST"
+	:content " "
 	:clear both
 	:height 0
      
@@ -45,8 +47,19 @@ img
 	:margin 0
 .page
 	:margin-top 12%
+	h1
+	h1, h2
+		:font-size 30px
+		:font-weight normal
+		:text-transform uppercase
 .logged-in 
 	:margin 0
+.nav
+	:float right
+	:margin-right 5%
+	ul
+		li 
+			:display inline-block
 //grid columns
 $grid-base: 40
 
@@ -213,6 +226,7 @@ $medium-blue : #47A8CB
 		
 
 .button
+	:font-family 'Cochin'
 	:background $green
 	:border 1.5px solid $green
 	:text-decoration none
@@ -229,10 +243,10 @@ $medium-blue : #47A8CB
 		:border 1.5px solid black
 		:color black
 .button--primary
-	:font-size 22px
+	:font-size 20px
 	:letter-spacing 1.5px
 	:text-transform uppercase
-	:padding 6px 14px 8px 14px	
+	:padding 10px 80px	
 .button--secondary
 	:padding 4px 8px 6px 10px
 i 

@@ -36,6 +36,12 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
+    # Add the fonts path
+  config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+  config.assets.paths << Rails.root.join('/app/assets/fonts')
+  # Precompile additional assets
+  config.assets.precompile += %w( .svg .eot .woff .ttf )
+
   Paperclip.options[:command_path] = "/usr/local/bin/"
   config.paperclip_defaults = {
     :storage => :s3,
