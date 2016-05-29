@@ -29,7 +29,9 @@
 
 <script>
 	$(document).on('ready page:load', function(){
-
+		// Get total number of questions
+		var total_questions = $('.question').length
+		console.log(total_questions)
 		// Intially set first group to active
 		$('.question-group').first().removeClass('hidden').addClass('active')
 		// Initially set height for first group
@@ -56,6 +58,7 @@
 
 		$('.submit-test').on('click', function(){
 			var score = 0;
+			var percentage = 0;
 			$('.question').each(function(){
 				question_name = $(this).children('input:radio').attr('name')
 				input = $("input[type='radio'][name='" +question_name + "']:checked").val()
@@ -64,6 +67,24 @@
 				};
 			});
 			console.log(score)
+			var percentage = score / total_questions
+			console.log(percentage)
+			if(percentage >= 0.8){
+				words = '<h1 class="center-text">Congratulations</h1> <p>You completed the test successfully!</p> <p>Your score:' + percentage * 100 + '% </p> <p>Minimum passing mark: 80%</p> <p>We\'re so happy to have you part of the Dr Roebucks \'s family, we will be sending you Kim & Zoe must have products FACE & POLISH, we hope you love thme as much as we do!</p> <p>Your local precious skin specialist will deliver it directly to you.</p><p>The first 200 beauty experts to complete our precious training will recieve a $50 Lululemon gift card.</p>'
+			} else {
+				words = '<h1 class="center-text">Sorry, Beautiful. You didn\'t pass the test!</h1> <p>Your score:' + percentage * 100 + '% </p> <p>Minimum passing mark: 80%</p> <p>Please restart the tests HERE</p>'
+			}
+			$('.wrapper').html(words)
+
+			$.ajax({
+        url: '',
+        type: 'get',
+        data: {
+          score : score,
+          total_questions : total_questions
+        },
+        dataType: 'script'
+      });
 		});
 
 	});
