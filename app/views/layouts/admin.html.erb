@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dr. Roebuck's</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link rel="stylesheet" href="http://localhost:8000/styleguide/assets/styles/styleguide.css">
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div id="admin">
+  <% if notice %>
+    <p class="alert alert-success"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+  <% end %>
+    <div id="admin--only">
+      <div class="sidebar">
+        <%= link_to "Dr Roebuck's Admin", admin_show_path, class: 'sidebar--header'%>
+        <%= link_to "Clinical Trials", admin_clinical_trials_path, class: is_active?("admin/clinical_trials") %>
+        <% if user_signed_in? %>
+          <div class="sidebar--user">
+            <span>Logged in as <strong><%= current_user.email %></strong></span>
+            <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+          </div>
+        <% end %>
+      </div>
+      <div class="breadcrumb">
+        
+      </div>
+      <div class="admin--content">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
+
+
+
+
+
+
+
