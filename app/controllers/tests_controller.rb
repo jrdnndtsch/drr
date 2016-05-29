@@ -10,6 +10,14 @@ class TestsController < ApplicationController
   # GET /tests/1
   # GET /tests/1.json
   def show
+    if params[:score]
+      percentage = params[:score].to_i / params[:total_questions].to_i
+      if percentage > 0.8
+        raise "hell passed"
+      else
+        raise "hell failed"
+      end
+    end
   end
 
   # GET /tests/new
