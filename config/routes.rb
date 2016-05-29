@@ -24,7 +24,9 @@ Rails.application.routes.draw do
 
    namespace :admin do
     resources :clinical_trials
-
+    resources :learning_modules
+    resources :videos
+    resources :skin_diets
    end 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

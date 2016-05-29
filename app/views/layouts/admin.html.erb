@@ -19,6 +19,7 @@
       <div class="sidebar">
         <%= link_to "Dr Roebuck's Admin", admin_show_path, class: 'sidebar--header'%>
         <%= link_to "Clinical Trials", admin_clinical_trials_path, class: is_active?("admin/clinical_trials") %>
+        <%= link_to "Learning Modules", admin_learning_modules_path, class: is_active?("admin/learning_modules") %>
         <% if user_signed_in? %>
           <div class="sidebar--user">
             <span>Logged in as <strong><%= current_user.email %></strong></span>
