@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160527162547) do
+ActiveRecord::Schema.define(version: 20160529201902) do
 
   create_table "answers", force: :cascade do |t|
     t.string   "title"
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 20160527162547) do
     t.string   "skin_concern"
     t.boolean  "email_list"
     t.boolean  "terms"
+    t.string   "role"
   end
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
