@@ -1,0 +1,22 @@
+<div class="as--admin-index-title">
+  <h1>All Clinical Trials</h1>
+  <%= link_to 'New Clinical Trial', new_admin_clinical_trial_path, class: 'button button--tertiary as--no-margin-bottom' %>
+</div>
+
+<table>
+  <thead>
+    <tr>
+    	<th>Title</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @clinical_trials.each do |trial| %>
+      <tr>
+        <td><%= trial.title %></td>
+        <td class="table--button"><%= link_to 'Edit', edit_admin_clinical_trial_path(trial), class: 'button button--primary button--edit as--no-margin-bottom' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

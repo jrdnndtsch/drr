@@ -1,0 +1,22 @@
+<div class="as--admin-index-title">
+  <h1>All Skin Diets</h1>
+  <%= link_to 'New Skin Diet', new_admin_skin_diet_path, class: 'button button--tertiary as--no-margin-bottom' %>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @skin_diets.each do |diet| %>
+      <tr>
+        <td><%= diet.title %></td>
+        <td class="table--button"><%= link_to 'Edit', edit_admin_skin_diet_path(diet), class: 'button button--primary button--edit as--no-margin-bottom' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

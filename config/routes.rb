@@ -19,6 +19,15 @@ Rails.application.routes.draw do
 
    get 'questions/test_submission' => 'questions#test_submission'    
    get 'libraries' => 'pages#libraries'
+
+   get 'admin/show'
+
+   namespace :admin do
+    resources :clinical_trials
+    resources :learning_modules
+    resources :videos
+    resources :skin_diets
+   end 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
