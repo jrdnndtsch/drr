@@ -2,17 +2,46 @@
 	<div class="wrapper">
 		<h1 class="center-text"><%= @test.name %></h1>
 
-			<% @test.questions.each do |question| %>
-			    <h2><%= question.title %></h2>
-			    <% question.answers.each do |answer| %>
-			    	<%= radio_button(question.title, answer.question.id, answer.correct) %>
-			    	<%= label_tag answer.title %><br>
-			        <!-- <p><%= answer.title %></p> -->
-			    <% end %>
+			<% @test.questions.in_groups_of(2) do |group| %>
+				<div class="question-group hidden">
+					<% group.compact.each do |question| %>
+				    <h2><%= question.title %></h2>
+				    <% question.answers.each do |answer| %>
+				    	<%= radio_button(question.title, answer.question.id, answer.correct) %>
+				    	<%= label_tag answer.title %><br>
+				    <% end %>
+					<% end %>
+				</div>
 			<% end %>
+			<button class="button next-question">Next</button>
+			<button class="button submit-test hidden">Submit</button>
 
 		<hr>
 		<%= link_to 'Edit', edit_test_path(@test) %> |
 		<%= link_to 'Back', tests_path %>
 	</div>
 </div>
+
+<script>
+	$(document).on('ready page:load', function(){
+
+		$('.question-group').first().removeClass('hidden').addClass('active')
+
+		$('.next-question').on('click', function(){
+
+			var this_question_group = $('.question-group.active')
+
+			var next_question_group = this_question_group.next();
+			if(next_question_group.hasClass('question-group')){
+				next_question_group.addClass('active').removeClass('hidden')
+				this_question_group.addClass('hidden').removeClass('active');
+				if(!next_question_group.next().hasClass('question-group')){
+					console.log('next question is last')
+					$('.next-question').addClass('hidden');
+					$('.submit-test').removeClass('hidden');
+				}
+			}
+		});
+
+	});
+	</script>
