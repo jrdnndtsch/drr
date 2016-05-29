@@ -29,7 +29,7 @@ module Admin
 
       respond_to do |format|
         if @skin_diet.save
-          format.html { redirect_to @skin_diet, notice: 'Skin diet was successfully created.' }
+          format.html { redirect_to edit_admin_skin_diet_path(@skin_diet), notice: 'Skin diet was successfully created.' }
           format.json { render :show, status: :created, location: @skin_diet }
         else
           format.html { render :new }
@@ -43,7 +43,7 @@ module Admin
     def update
       respond_to do |format|
         if @skin_diet.update(skin_diet_params)
-          format.html { redirect_to @skin_diet, notice: 'Skin diet was successfully updated.' }
+          format.html { redirect_to edit_admin_skin_diet_path(@skin_diet), notice: 'Skin diet was successfully updated.' }
           format.json { render :show, status: :ok, location: @skin_diet }
         else
           format.html { render :edit }

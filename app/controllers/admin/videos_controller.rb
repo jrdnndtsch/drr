@@ -1,5 +1,5 @@
 module Admin
-  class VideosController < ApplicationController
+  class VideosController < AdminController
     before_action :set_video, only: [:show, :edit, :update, :destroy]
 
     # GET /videos
@@ -29,7 +29,7 @@ module Admin
 
       respond_to do |format|
         if @video.save
-          format.html { redirect_to @video, notice: 'Video was successfully created.' }
+          format.html { redirect_to edit_admin_video_path(@video), notice: 'Video was successfully created.' }
           format.json { render :show, status: :created, location: @video }
         else
           format.html { render :new }
@@ -43,7 +43,7 @@ module Admin
     def update
       respond_to do |format|
         if @video.update(video_params)
-          format.html { redirect_to @video, notice: 'Video was successfully updated.' }
+          format.html { redirect_to edit_admin_video_path(@video), notice: 'Video was successfully updated.' }
           format.json { render :show, status: :ok, location: @video }
         else
           format.html { render :edit }
