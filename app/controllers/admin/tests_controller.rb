@@ -41,7 +41,7 @@ module Admin
 
       respond_to do |format|
         if @test.save
-          format.html { redirect_to @test, notice: 'Test was successfully created.' }
+          format.html { redirect_to edit_admin_test_path(@test), notice: 'Test was successfully created.' }
           format.json { render :show, status: :created, location: @test }
         else
           format.html { render :new }
@@ -56,7 +56,7 @@ module Admin
 
       respond_to do |format|
         if @test.update(test_params)
-          format.html { redirect_to @test, notice: 'Test was successfully updated.' }
+          format.html { redirect_to edit_admin_test_path(@test), notice: 'Test was successfully updated.' }
           format.json { render :show, status: :ok, location: @test }
         else
           format.html { render :edit }
