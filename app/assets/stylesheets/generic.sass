@@ -8,11 +8,11 @@ body
 	:font-family 'Arial', sans-serif
 p
 	:line-height 32px
-.clearfix:after 
+.clearfix::after 
 	:visibility hidden
 	:display block
 	:font-size 0
-	:content " "
+	:content "TEST"
 	:clear both
 	:height 0
      
@@ -178,6 +178,7 @@ $grid-base: 40
 					:width 100%
 //COLORS
 $pink : #CF1E53
+$green : #003333
 $blue : #2E708E
 $grey : #979797
 $black : #222222
@@ -212,9 +213,9 @@ $medium-blue : #47A8CB
 		:bottom -14px	
 		
 
-a.button
-	:background $pink
-	:border 1.5px solid $pink
+.button
+	:background $green
+	:border 1.5px solid $green
 	:text-decoration none
 	:color white
 	:font-family 'WWF', sans-serif
@@ -222,7 +223,7 @@ a.button
 	:font-weight 100
 	:display inline-block
 	:text-transform uppercase
-	:transition all 0.5s
+	// :transition all 0.5s
 	span 
 		:font-size 12px
 	&:hover

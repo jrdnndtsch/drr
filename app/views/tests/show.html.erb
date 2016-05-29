@@ -1,22 +1,25 @@
 <div class="page">
 	<div class="wrapper">
 		<h1 class="center-text"><%= @test.name %></h1>
-
-			<% @test.questions.in_groups_of(2) do |group| %>
-				<div class="question-group hidden">
-					<% group.compact.each do |question| %>
-						<div class="question">
-					    <h2><%= question.title %></h2>
-					    <% question.answers.each do |answer| %>
-					    	<%= radio_button(question.title, answer.question.id, answer.correct) %>
-					    	<%= label_tag answer.title %><br>
-					    <% end %>
-						</div>
-					<% end %>
-				</div>
-			<% end %>
-			<button class="button next-question">Next</button>
-			<button class="button submit-test hidden">Submit</button>
+		
+			<div class="test clearfix">
+				<% @test.questions.in_groups_of(2) do |group| %>
+					<div class="question-group hidden">
+						<% group.compact.each do |question| %>
+							<div class="question">
+						    <h2><%= question.title %></h2>
+						    <% question.answers.each do |answer| %>
+						    	<%= radio_button(question.title, answer.question.id, answer.correct) %>
+						    	<%= label_tag answer.title %><br>
+						    <% end %>
+							</div>
+						<% end %>
+					</div>
+				<% end %>
+				
+			</div>
+			<button class="button button--primary next-question">Next</button>
+			<button class="button button--primary submit-test hidden">Submit</button>
 
 		<hr>
 		<%= link_to 'Edit', edit_test_path(@test) %> |
@@ -27,8 +30,13 @@
 <script>
 	$(document).on('ready page:load', function(){
 
+		// Intially set first group to active
 		$('.question-group').first().removeClass('hidden').addClass('active')
+		// Initially set height for first group
+		var objHeight = $('.question-group.active').height()
+		$('.test').height(objHeight + 30);
 
+		//next button
 		$('.next-question').on('click', function(){
 
 			var this_question_group = $('.question-group.active')
@@ -37,8 +45,9 @@
 			if(next_question_group.hasClass('question-group')){
 				next_question_group.addClass('active').removeClass('hidden')
 				this_question_group.addClass('hidden').removeClass('active');
+				objHeight = $('.question-group.active').height()
+				$('.test').height(objHeight + 30);
 				if(!next_question_group.next().hasClass('question-group')){
-					console.log('next question is last')
 					$('.next-question').addClass('hidden');
 					$('.submit-test').removeClass('hidden');
 				}
