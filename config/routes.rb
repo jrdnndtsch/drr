@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     resources :learning_modules
     resources :videos
     resources :skin_diets
+    resources :tests
    end 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

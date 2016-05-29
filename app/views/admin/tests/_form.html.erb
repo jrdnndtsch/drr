@@ -1,0 +1,52 @@
+<%= form_for [:admin, @test] do |f| %>
+  <% if @test.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@test.errors.count, "error") %> prohibited this test from being saved:</h2>
+
+      <ul>
+      <% @test.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :learning_module_id %><br>
+    <%= f.text_field :learning_module_id %>
+  </div>
+
+  <%= f.fields_for :questions do |builder| %>
+    <%= render 'question_fields', f: builder  %>
+  <% end %>
+  <%= link_to_add_fields "Add Question", f, :questions %>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<script>
+  $(document).ready(function(){
+    console.log('ready')
+    $('form').on('click', '.remove_fields', function(even){
+      event.preventDefault()
+      $(this).prev('input[type=hidden]').val('1');
+      $(this).closest('fieldset').hide();
+    });
+    
+    $('form').on('click', '.add_fields', function(event){
+      event.preventDefault();
+      time = new Date().getTime();
+      regexp = new RegExp($(this).data('id'), 'g');
+      console.log(regexp)
+      $(this).before($(this).data('fields').replace(regexp, time));
+
+    })
+  });
+</script>

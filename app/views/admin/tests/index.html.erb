@@ -1,0 +1,22 @@
+<div class="as--admin-index-title">
+  <h1>All Tests</h1>
+  <%= link_to 'New Skin Diet', new_admin_test_path, class: 'button button--tertiary as--no-margin-bottom' %>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tests.each do |test| %>
+      <tr>
+        <td><%= test.name %></td>
+        <td class="table--button"><%= link_to 'Edit', edit_admin_test_path(test), class: 'button button--primary button--edit as--no-margin-bottom' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
