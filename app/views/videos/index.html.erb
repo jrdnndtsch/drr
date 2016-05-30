@@ -1,15 +1,32 @@
 <div class="page">
+  
   <div class="wrapper">
     
     <h1 class="center-text">Listing Videos</h1>
 
+
     <div class="wrapper--flex">
       <% @videos.each do |video| %>
-        <div class="col--three">
-          <%= link_to video.title, video %>
+        <div class="col--three-margin circle video" style="background-image: linear-gradient(to right, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 59%, rgba(255, 255, 255, 0.6) 100%), url(<%= video.image.url %>)" data-video="<%= video.link%>">
+          <h2 class="center-absolute"><%= link_to video.title, video %></h2>
         </div>
       <% end %>
     </div>
   </div>
+  <div id="container-pdf"></div>
 </div>
 
+<script>
+  $('.video').on('click', function(e){
+    e.preventDefault()
+    var video = $(this).data('video')
+    if(video != 'undefined'){
+      $('#container-pdf').append('<iframe class="center-absolute" width="560" height="315" src="'+ video +'" frameborder="0" allowfullscreen></iframe>')
+      $('#container-pdf').css('display', 'block')
+    }
+  });
+  $('#container-pdf').on('click', function(e){
+    e.stopPropagation();
+    $(this).empty().css('display', 'none')
+  })
+</script>

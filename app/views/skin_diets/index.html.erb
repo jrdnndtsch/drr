@@ -7,10 +7,25 @@
 
     <div class="wrapper--flex">
       <% @skin_diets.each do |skin_diet| %>
-        <div class="col--three">
-          <%= link_to skin_diet.title, skin_diet %>
+        <div class="col--three-margin circle diet" style="background-image: linear-gradient(to right, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 59%, rgba(255, 255, 255, 0.6) 100%), url(<%= skin_diet.image.url %>)" data-diet="<%= skin_diet.pdf.url%>">
+          <h2 class="center-absolute"><%= link_to skin_diet.title, skin_diet %></h2>
         </div>
       <% end %>
     </div>
   </div>
+  <div id="container-pdf"></div>
 </div>
+
+<script>
+  $('.diet').on('click', function(e){
+    e.preventDefault()
+    var pdf = $(this).data('diet')
+    console.log(pdf)
+    $('#container-pdf').append('<iframe class="center-absolute" src="' + pdf + '#toolbar=0&navpanes=0&scrollbar=0" width="600" height="500" style="border:none;" frameborder="0">')
+    $('#container-pdf').css('display', 'block')
+  });
+  $('#container-pdf').on('click', function(e){
+    e.stopPropagation();
+    $(this).empty().css('display', 'none')
+  })
+</script>
