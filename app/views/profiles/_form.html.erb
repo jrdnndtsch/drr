@@ -13,7 +13,7 @@
 				  <%= f.text_field :city, placeholder: 'City'%>
 				</div>
 				<div class="field col--two-margin">
-				  <%= f.text_field :province, placeholder: 'Province'%>
+				  <%= f.collection_select :province, Profile::PROVINCES, :to_s, :to_s, {:prompt => 'Province'}%>
 				</div>
 			</div>
 			<div class="forget-fields wrapper--flex">
@@ -31,21 +31,21 @@
 		</div>
 		<div class="second-form hidden" id="second-form">
 			<div class="field full">
-				<%= f.text_field :retailer, placeholder: 'Which Retailer Are you Working for?'%>
+				<%= f.collection_select :retailer, Profile::RETAILERS, :to_s, :to_s, {:prompt => 'Which Retailer Are you Working for?'}%>
 			</div>
-			<div class="forget-fields">
-				<div class="field">
+			<div class="forget-fields wrapper--flex">
+				<div class="field col--two-margin">
 					<%= f.text_field :store_number, placeholder: 'Store Number'%>
 				</div>
-				<div class="field">
+				<div class="field col--two-margin">
 					<%= f.text_field :store_name, placeholder: 'Store Name'%>
 				</div>
 			</div>
-			<div class="forget-fields">
-				<div class="field">
+			<div class="forget-fields wrapper--flex">
+				<div class="field col--two-margin">
 					<%= f.text_field :years_experience, placeholder: 'Years of Experience?'%>
 				</div>
-				<div class="field">
+				<div class="field col--two-margin">
 					<%= f.text_field :skin_concern, placeholder: 'Skin Concern'%>
 				</div>
 			</div>
@@ -64,9 +64,9 @@
 <script>
 // $(document).on('ready page:load', function(){
 
-	$( "#profile_birthday_2i" ).wrap( "<div class='col--two-margin'></div>" );
-	$( "#profile_birthday_3i" ).wrap( "<div class='col--four-margin'></div>" );
-	$( "#profile_birthday_1i" ).wrap( "<div class='col--four-margin'></div>" );
+	$( "#profile_birthday_2i" ).wrap( "<div class='col--two-margin field'></div>" );
+	$( "#profile_birthday_3i" ).wrap( "<div class='col--four-margin field'></div>" );
+	$( "#profile_birthday_1i" ).wrap( "<div class='col--four-margin field'></div>" );
 
 	$('#next').on('click', function(){
 		$('.first-form').addClass('hidden');
