@@ -2,61 +2,31 @@
   
   <div class="wrapper">
     
-    <h1 class="center-text">Listing Skin Diets</h1>
+    <h1 class="center-text">Listing Clinical Trials</h1>
 
 
     <div class="wrapper--flex">
-      <% @clinical_trials.each do  |clinical_trial| %>
-        <div class="col--two">
-          <%= link_to clinical_trial.title, clinical_trial %>
+      <% @clinical_trials.each do |clinical_trial| %>
+        <div class="col--three-margin circle trial" style="background-image: linear-gradient(to right, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 59%, rgba(255, 255, 255, 0.6) 100%), url(<%= clinical_trial.image.url %>)" data-trial="<%= clinical_trial.pdf.url%>">
+          <h2 class="center-absolute"><%= link_to clinical_trial.title, clinical_trial %></h2>
         </div>
       <% end %>
     </div>
   </div>
+  <div id="container-pdf"></div>
 </div>
 
-<br>
-<hr>
-<br>
-<iframe src="http://s3.amazonaws.com/drroebuck/clinical_trials/pdfs/000/000/001/original/CAIS-app-proposal.pdf?1464038032#toolbar=0&navpanes=0&scrollbar=0" width="800" height="500" style="border:none;" frameborder="0">
-
-<br>
-
-
 <script>
-console.log('pdf working')
-    // URL of PDF document
-    var url = 'http://s3.amazonaws.com/drroebuck/clinical_trials/pdfs/000/000/001/original/CAIS-app-proposal.pdf?1464038032';
-
-    // Asynchronous download PDF
-    PDFJS.getDocument(url)
-      .then(function(pdf) {
-        return pdf.getPage(1);
-      })
-      .then(function(page) {
-
-  // Set scale (zoom) level
-  var scale = 1.5;
-
-  // Get viewport (dimensions)
-  var viewport = page.getViewport(scale);
-
-  // Get div#the-svg
-  var container = document.getElementById('the-svg');
-
-  // Set dimensions
-  container.style.width = viewport.width + 'px';
-  container.style.height = viewport.height + 'px';
-
-  // SVG rendering by PDF.js
-  page.getOperatorList()
-    .then(function (opList) {
-      var svgGfx = new PDFJS.SVGGraphics(page.commonObjs, page.objs);
-      return svgGfx.getSVG(opList, viewport);
-    })
-    .then(function (svg) {
-      container.appendChild(svg);
-    });
-
-});
+  $('.trial').on('click', function(e){
+    e.preventDefault()
+    var pdf = $(this).data('trial')
+    if(pdf != 'undefined'){
+      $('#container-pdf').append('<iframe class="center-absolute" src="' + pdf + '#toolbar=0&navpanes=0&scrollbar=0" width="600" height="500" style="border:none;" frameborder="0">')
+      $('#container-pdf').css('display', 'block')
+    }
+  });
+  $('#container-pdf').on('click', function(e){
+    e.stopPropagation();
+    $(this).empty().css('display', 'none')
+  })
 </script>
