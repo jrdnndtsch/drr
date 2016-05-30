@@ -8,6 +8,25 @@
 			<div class="field full">
 			  <%= f.text_field :address, placeholder: 'Address' %>
 			</div>
+			<div class="forget-fields wrapper--flex">
+				<div class="field col--two-margin">
+				  <%= f.text_field :city, placeholder: 'City'%>
+				</div>
+				<div class="field col--two-margin">
+				  <%= f.text_field :province, placeholder: 'Province'%>
+				</div>
+			</div>
+			<div class="forget-fields">
+				<div class="field">
+				  <%= f.text_field :postal_code, placeholder: 'Postal Code'%>
+				</div>
+				<div class="field">
+				  <%= f.text_field :country, placeholder: 'Country'%>
+				</div>
+			</div>
+			<div class="field wrapper--flex">
+				<%= f.date_select(:birthday, :order => [:month, :day, :year], :prompt => { :month => 'Birthday Month', :day => 'Day',:year => 'Year' } ) %>
+			</div>
 			<a href="#" class="button button--primary" id="next">next</a>
 		</div>
 		<div class="second-form hidden" id="second-form">
@@ -43,12 +62,16 @@
 </div>
 
 <script>
-$(document).on('ready page:load', function(){
+// $(document).on('ready page:load', function(){
+
+	$( "#profile_birthday_2i" ).wrap( "<div class='col--two-margin'></div>" );
+	$( "#profile_birthday_3i" ).wrap( "<div class='col--four-margin'></div>" );
+	$( "#profile_birthday_1i" ).wrap( "<div class='col--four-margin'></div>" );
 
 	$('#next').on('click', function(){
 		$('.first-form').addClass('hidden');
 		$('.second-form').removeClass('hidden');
 	});
-});
+// });
 	
 </script>
