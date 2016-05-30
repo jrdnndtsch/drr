@@ -52,7 +52,7 @@ img
 	:margin-top 12%
 	h1
 	h1, h2
-		:font-size 30px
+		:font-size 25px
 		:font-weight normal
 		:text-transform uppercase
 .logged-in 
@@ -212,12 +212,8 @@ $grid-base: 40
 				:width calc(25% - 10px)
 				&:nth-of-type(1)
 					:margin-right 20px
-			+display-for(sm)
-				:width 80%	
-				:margin 0 10% 20px 10%
-				+make-column(20)
-			+display-for(xs)
-				:margin-bottom 20px
+			+display-for(sm xs)
+				// :margin-bottom 30px
 				:width 100%
 				+make-column(40)
 //COLORS
@@ -272,13 +268,13 @@ $medium-blue : #47A8CB
 		:font-size 12px
 	&:hover
 		:background transparent
-		:border 1.5px solid $green
-		:color $green
+		:border 1.5px solid white
+		:color white
 a.button, 
 .page a.button 
 	:color white 		
 .button--primary
-	:font-size 20px
+	:font-size 18px
 	:letter-spacing 1.5px
 	:text-transform uppercase
 	:padding 10px 80px	
@@ -287,7 +283,7 @@ a.button,
 i 
 	:transition all 0.5s
 	&:hover
-		:color $pink
+		:color white
 .content-wrapper
 	:background white
 	:padding 40px 0		

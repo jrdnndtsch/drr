@@ -50,9 +50,13 @@
 		:font-family 'Cochin'
 		:font-size 20px
 		:color #999
+select
+	:background url(down-arrow.png) 98% / 2.5% no-repeat #fff
 .col--two-margin
 	select
 		:background url(down-arrow.png) 96% / 5% no-repeat #fff
 .col--four-margin
 	select
 		:background url(down-arrow.png) 94% / 10% no-repeat #fff
+		+display-for(sm xs)
+			:background url(down-arrow.png) 96% / 5% no-repeat #fff
