@@ -188,8 +188,8 @@ $grid-base: 40
 				:width calc(50% - 12px)
 				&:nth-of-type(2n + 1)
 					:margin-right 12px
-				+display-for(sm xs)
-					+make-column(40)	
+			+display-for(sm xs)
+				+make-column(40)	
 		&--three-margin
 			+display-for(xl lg md)
 				:width calc(33.33% - 60px)
@@ -213,8 +213,12 @@ $grid-base: 40
 				&:nth-of-type(1)
 					:margin-right 20px
 			+display-for(sm)
+				:width 80%	
+				:margin 0 10% 20px 10%
 				+make-column(20)
 			+display-for(xs)
+				:margin-bottom 20px
+				:width 100%
 				+make-column(40)
 //COLORS
 $pink : #CF1E53
