@@ -270,6 +270,9 @@ $medium-blue : #47A8CB
 		:background transparent
 		:border 1.5px solid $green
 		:color $green
+a.button, 
+.page a.button 
+	:color white 		
 .button--primary
 	:font-size 20px
 	:letter-spacing 1.5px
@@ -287,7 +290,7 @@ i
 section
 	:padding 40px 0	
 .col--three.circle, 
-.col--three-margin.circle
+.col--three-margin.circle, 
 	:padding-bottom calc(33.33% - 60px)
 	:border-radius 50%
 	:background white
@@ -299,6 +302,16 @@ section
 		:padding-bottom 80%
 	+display-for(xs)
 		:padding-bottom 100%
+.learning-modules .col--two
+	:margin-bottom 60px
+
+.col--two .circle
+	:margin 0 20%
+	:padding-bottom 60%
+	:border-radius 50%
+	:background white
+	:position relative
+	:background-size cover		
 .center-absolute
 	:position absolute 
 	:top 50%
