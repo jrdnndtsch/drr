@@ -68,9 +68,14 @@
 	$( "#profile_birthday_3i" ).wrap( "<div class='col--four-margin field'></div>" );
 	$( "#profile_birthday_1i" ).wrap( "<div class='col--four-margin field'></div>" );
 
+	var objHeight = $('.first-form').height()
+	$('.profile').height(objHeight + 80);
+
 	$('#next').on('click', function(){
 		$('.first-form').addClass('hidden');
 		$('.second-form').removeClass('hidden');
+		var objHeight = $('.second-form').height()
+	$('.profile').height(objHeight + 80);
 	});
 // });
 	
