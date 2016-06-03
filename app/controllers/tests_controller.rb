@@ -10,6 +10,7 @@ class TestsController < ApplicationController
   # GET /tests/1
   # GET /tests/1.json
   def show
+
     if params[:score]
       percentage = params[:score].to_i / params[:total_questions].to_i
       if percentage > 0.8
@@ -18,6 +19,8 @@ class TestsController < ApplicationController
         raise "hell failed"
       end
     end
+    @learnign_module = LearningModule.find(@test.learning_module_id.to_i)
+    
   end
 
   # GET /tests/new
