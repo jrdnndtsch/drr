@@ -1,3 +1,12 @@
+//COLORS
+$pink : #CF1E53
+$green : #003333
+$blue : #2E708E
+$grey : #979797
+$black : #222222
+$light-grey : #9B9B9B
+$light-blue : #7EC9E7
+$medium-blue : #47A8CB
 html
 	:box-sizing border-box
 *, *:before, *:after
@@ -51,6 +60,7 @@ img
 .page
 	:margin-top 12%
 	h1
+		:margin-bottom 60px
 	h1, h2
 		:font-size 25px
 		:font-weight normal
@@ -63,6 +73,11 @@ img
 	ul
 		li 
 			:display inline-block
+			:padding 0 20px
+			&:last-of-type
+				:padding-right 0
+			a 
+				:color $green
 //grid columns
 $grid-base: 40
 
@@ -216,15 +231,7 @@ $grid-base: 40
 				// :margin-bottom 30px
 				:width 100%
 				+make-column(40)
-//COLORS
-$pink : #CF1E53
-$green : #003333
-$blue : #2E708E
-$grey : #979797
-$black : #222222
-$light-grey : #9B9B9B
-$light-blue : #7EC9E7
-$medium-blue : #47A8CB
+
 
 
 //TITLES
@@ -296,6 +303,8 @@ section
 	:background white
 	:position relative
 	:background-size cover
+	+display-for(sm xs)
+		:margin-bottom 30px
 	+display-for(md)
 		:padding-bottom calc(33.33% - 40px)
 	+display-for(sm)
@@ -303,7 +312,10 @@ section
 	+display-for(xs)
 		:padding-bottom 100%
 .learning-modules .col--two
-	:margin-bottom 60px
+	:margin-bottom 80px
+	&:nth-of-type(2n + 1)
+		+display-for(sm xs)
+			:margin-bottom 20px
 
 .col--two .circle
 	:margin 0 20%
