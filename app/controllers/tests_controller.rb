@@ -1,6 +1,6 @@
 class TestsController < ApplicationController
   before_action :set_test, only: [:show, :edit, :update, :destroy]
-
+  before_action :ensure_profile
   # GET /tests
   # GET /tests.json
   def index

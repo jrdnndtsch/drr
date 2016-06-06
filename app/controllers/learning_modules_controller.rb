@@ -1,6 +1,5 @@
 class LearningModulesController < ApplicationController
   before_action :set_learning_module, only: [:show, :edit, :update, :destroy]
-
   # GET /learning_modules
   # GET /learning_modules.json
   def index
