@@ -59,6 +59,7 @@ img
 	:padding 20px
 .page
 	:margin-top 200px
+	:min-height calc(100vh - 300px)
 	h1
 		:margin-bottom 60px
 	h1, h2
@@ -70,6 +71,7 @@ img
 .nav
 	:float right
 	:margin-right 5%
+	:margin-top 35px
 	ul
 		li 
 			:display inline-block
@@ -255,16 +257,18 @@ $grid-base: 40
 img.logo
 	:width 100px
 	:float left
+	:margin-left 5%
 .sur-title
 	:display inline
 	:float left
 	:margin-left 20px
-	:margin-top 15px
+	:margin-top 20px
 	:text-align center
 	:text-transform uppercase
 	p 
 		:font-size 16px
 		:margin 0
+		:line-height 20px
 //TITLES
 
 .title
@@ -315,7 +319,7 @@ a.button,
 	:font-size 18px
 	:letter-spacing 1.5px
 	:text-transform uppercase
-	:padding 10px 80px	
+	:padding 10px 50px	
 .button--secondary
 	:padding 4px 8px 6px 10px
 i 
@@ -342,6 +346,9 @@ section
 		:padding-bottom 80%
 	+display-for(xs)
 		:padding-bottom 100%
+	a
+		h2
+			:padding 50% 0
 .learning-modules .col--two
 	:margin-bottom 80px
 	&:nth-of-type(2n + 1)
@@ -380,5 +387,6 @@ section
 	:height 100vh
 	:display none
 	iframe
-		:width 600px
+		:width 80vw
+		:height 100vh
 	// 	:margin 0 calc(50% - 300px)

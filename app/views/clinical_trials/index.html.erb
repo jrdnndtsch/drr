@@ -8,7 +8,9 @@
     <div class="wrapper--flex">
       <% @clinical_trials.each do |clinical_trial| %>
         <div class="col--three-margin circle trial" style="background-image: linear-gradient(to right, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 59%, rgba(255, 255, 255, 0.6) 100%), url(<%= clinical_trial.image.url %>)" data-trial="<%= clinical_trial.pdf.url%>">
-          <h2 class="center-absolute"><%= link_to clinical_trial.title, clinical_trial %></h2>
+          <%= link_to clinical_trial do %>
+            <h2 class="center-absolute"><%= clinical_trial.title %></h2>
+          <% end %>
         </div>
       <% end %>
     </div>

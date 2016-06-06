@@ -1,15 +1,21 @@
 <div class="page">
 	<div class="wrapper wrapper--flex page">
 		<h1 class="center-text">We are so happy to share all our healthy secrets with you</h1>
-
+		
 		<div class="col--three-margin circle">
-			<h2 class="center-absolute"><%= link_to 'Skin Diets', skin_diets_path %></h2> 
+			<%= link_to  skin_diets_path do %>
+				<h2 class="center-absolute">Skin Diets</h2> 
+			<% end %>
 		</div>
 		<div class="col--three-margin circle">
-			<h2 class="center-absolute"><%= link_to 'Videos', videos_path %></h2> 
+			<%= link_to videos_path do %>
+				<h2 class="center-absolute">Videos</h2>
+			<% end %> 
 		</div>
 		<div class="col--three-margin circle">
-			<h2 class="center-absolute"><%= link_to 'Clinical Trials', clinical_trials_path %></h2>	
+			<%= link_to clinical_trials_path do %>
+				<h2 class="center-absolute">Clinical Trials</h2>
+			<% end %>	
 		</div>
 		
 	</div>
