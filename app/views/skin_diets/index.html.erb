@@ -7,7 +7,7 @@
 
     <div class="wrapper--flex">
       <% @skin_diets.each do |skin_diet| %>
-        <div class="col--three-margin circle diet" style="background-image: linear-gradient(to right, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 59%, rgba(255, 255, 255, 0.6) 100%), url(<%= skin_diet.image.url %>)" data-diet="<%= skin_diet.pdf.url%>">
+        <div class="col--three-margin circle diet" style="background-image: linear-gradient(to right, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 59%, rgba(255, 255, 255, 0.6) 100%), url(<%= skin_diet.image.url %>)" data-diet="<%= skin_diet.pdf.url %>">
           <h2 class="center-absolute"><%= link_to skin_diet.title, skin_diet %></h2>
         </div>
       <% end %>
