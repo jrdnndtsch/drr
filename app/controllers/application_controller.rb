@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   
   def authorize_admin
   	if current_user.profile.present?
-      redirect_to :back, :status => 401 unless current_user.profile.role == 'admin'
+      redirect_to root_path, :status => 401 unless current_user.profile.role == 'admin'
       #redirects to previous page
     end  
   end
