@@ -8,7 +8,7 @@ class UserTestsController < ApplicationController
     respond_to do |format|
       format.html
       format.csv {
-        send_data @user_tests.export_csv, type: 'text/csv; charset=utf-8;header=present', disposition: 'attachement; filename=Coupons.csv'
+        send_data @user_tests.export_csv, type: 'text/csv; charset=utf-8;header=present', disposition: 'attachement; filename=passed_tests.csv'
       }
     end
   end

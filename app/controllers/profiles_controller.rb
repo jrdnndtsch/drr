@@ -1,8 +1,15 @@
 class ProfilesController < ApplicationController
+	require 'csv'
 	# GET /articles
 	# GET /articles.json
 	def index
 	  @profiles = Profile.all
+	  respond_to do |format|
+	    format.html
+	    format.csv {
+	      send_data @profiles.export_csv, type: 'text/csv; charset=utf-8;header=present', disposition: 'attachement; filename=email_list.csv'
+	    }
+	  end
 	end
 
 	# GET /articles/1
