@@ -17,7 +17,7 @@
   <% end %>
     <div id="admin--only">
       <div class="sidebar">
-        <%= link_to "Dr Roebuck's Admin", admin_show_path, class: 'sidebar--header'%>
+        <%= link_to "Dr Roebuck's Admin", root_path, class: 'sidebar--header'%>
         <%= link_to "Learning Modules", admin_learning_modules_path, class: is_active?("admin/learning_modules") %>
         <%= link_to "Tests", admin_tests_path, class: is_active?("admin/tests") %>
         <%= link_to "Clinical Trials", admin_clinical_trials_path, class: is_active?("admin/clinical_trials") %>
