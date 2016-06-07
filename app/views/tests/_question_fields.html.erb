@@ -6,9 +6,7 @@
 	<div class="field">
 		<%= f.hidden_field :test_id, value: @test.id%>
 	</div>
-	<div class="actions">
-	  <%= f.submit %>
-	</div>
+<!--  -->
 	<%= f.fields_for :answers do |builder| %>
 	  <%= render 'answer_fields', f: builder %>
 	<% end %>

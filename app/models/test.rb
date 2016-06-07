@@ -3,7 +3,7 @@ class Test < ActiveRecord::Base
   has_many :questions
 
   has_many :answers, through: :questions
-
+  has_many :user_tests
 
   # attr_accessible :title, :questions_attributes
   

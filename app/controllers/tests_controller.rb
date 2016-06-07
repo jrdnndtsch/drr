@@ -10,11 +10,12 @@ class TestsController < ApplicationController
   # GET /tests/1
   # GET /tests/1.json
   def show
-
     if params[:score]
+    # raise "hell"
       percentage = params[:score].to_i / params[:total_questions].to_i
       if percentage > 0.8
-        raise "hell passed"
+        UserTest.create(user_id: current_user.id, test_id: @test.id)
+        raise "hell"
       else
         raise "hell failed"
       end
