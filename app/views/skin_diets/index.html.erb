@@ -13,10 +13,15 @@
           <% end %>
         </div>
       <% end %>
+      <% @skin_diets.each do |skin_diet| %>
+        <div class="col--three-margin center-text">
+          <%= link_to 'download', skin_diet.pdf.url, target: '_blank', class: 'button button--primary'%>
+        </div>
+      <% end %>    
     </div>
+
+    <div id="container-pdf"></div>
   </div>
-  <div id="container-pdf"></div>
-</div>
 
 <script>
   $('.diet').on('click', function(e){
