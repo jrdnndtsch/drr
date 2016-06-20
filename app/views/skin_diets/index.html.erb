@@ -13,13 +13,15 @@
           <% end %>
         </div>
       <% end %>
-      <% @skin_diets.each do |skin_diet| %>
-        <div class="col--three-margin center-text">
-          <%= link_to 'download', skin_diet.pdf.url, target: '_blank', class: 'button button--primary'%>
-        </div>
-      <% end %>    
+      </div>
+      <div class="wrapper--flex">
+        <% @skin_diets.each do |skin_diet| %>
+          <div class="col--three-margin center-text">
+            <%= link_to 'download', skin_diet.pdf.url, target: '_blank', class: 'button button--primary'%>
+          </div>
+        <% end %>  
+      </div>    
     </div>
-
     <div id="container-pdf"></div>
   </div>
 
@@ -27,9 +29,10 @@
   $('.diet').on('click', function(e){
     e.preventDefault()
     var pdf = $(this).data('diet')
-    console.log(pdf)
-    $('#container-pdf').append('<iframe class="center-absolute" src="' + pdf + '#toolbar=0&navpanes=0&scrollbar=0" width="600" height="500" style="border:none;" frameborder="0">')
-    $('#container-pdf').css('display', 'block')
+    if(pdf != 'undefined'){
+      $('#container-pdf').append('<iframe class="center-absolute" src="' + pdf + '#toolbar=0&navpanes=0&scrollbar=0" width="600" height="500" style="border:none;" frameborder="0">')
+      $('#container-pdf').css('display', 'block')
+    }
   });
   $('#container-pdf').on('click', function(e){
     e.stopPropagation();
