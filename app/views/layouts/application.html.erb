@@ -12,9 +12,11 @@
 </head>
 <body>
 
-<div class="main" style="background-image: url(<%=image_url('drr-background-bw.jpg')%>);">
+<div class="main" style="background-image: url(<%=image_url('drr-background2.jpg')%>);">
 
+  <%= link_to root_path do %>
   <%= image_tag 'logo.png', class: 'logo' %>
+  <% end %>
   <div class="sur-title">
     <p>Minimal Ingredients</p>
     <p>Maximum results</p>
@@ -38,10 +40,10 @@
 
   <div class="footer">
     <ul>
-      <li>Contact Us</li>
-      <li>More tips for healthy skin</li>
-      <li><i class="fa fa-facebook-square"></i></li>
-      <li><i class="fa fa-instagram"></i></li>
+      <li><a href="#">Contact Us</a></li>
+      <li><a href="#">More tips for healthy skin</a></li>
+      <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+      <li><a href="#"><i class="fa fa-instagram"></i></a></li>
     </ul>
   </div>
 </div>
