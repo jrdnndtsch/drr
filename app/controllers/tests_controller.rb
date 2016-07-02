@@ -13,7 +13,6 @@ class TestsController < ApplicationController
     if params[:score]
       percentage = params[:score].to_f / params[:total_questions].to_f
       if percentage >= 0.8
-      # raise 'hell'
         UserTest.create(user_id: current_user.id, test_id: @test.id)
         begin
           TestMailer.user_notification(current_user).deliver
@@ -21,7 +20,7 @@ class TestsController < ApplicationController
           logger.info "!!! Warning: Failed to deliver email, skipping"
         end
       else
-        raise "hell failed"
+        # raise "hell failed"
       end
     end
     @learnign_module = LearningModule.find(@test.learning_module_id.to_i)

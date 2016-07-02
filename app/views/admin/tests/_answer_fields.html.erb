@@ -8,6 +8,10 @@
 	  <%= f.check_box :correct %>
 	</div>
 	<div class="field">
+		<%= f.label :_destroy, 'delete answer'%>
+		<%= f.check_box :_destroy%>
+	</div>
+	<div class="field">
 		<%= f.hidden_field :question_id%>
 	</div>
 	<div class="actions">

@@ -4,6 +4,10 @@
 	  <%= f.text_field :title %>
 	</div>
 	<div class="field">
+		<%= f.label :_destroy, 'delete question'%>
+		<%= f.check_box :_destroy%>
+	</div>
+	<div class="field">
 		<%= f.hidden_field :test_id, value: @test.id%>
 	</div>
 	<div class="actions">
