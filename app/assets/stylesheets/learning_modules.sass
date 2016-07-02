@@ -4,12 +4,31 @@
 
 iframe
 	:margin-bottom 40px
+.learning-modules-wrapper
+	:max-width 700px
+	:margin 0 auto
 .learning-area
-	:width 80%
+	:width 100%
+	:margin-left -70px
 	+display-for(sm xs)
 		:width 100%
-#learning-circle
-	:margin 0
-	:margin-left 40%
+		:margin-left 0
+	h2
+		:font-size 20px
+		:margin-top 0
+.learning-circle-wrapper
+	:display flex
+	:justify-content center
 	+display-for(sm xs)
-		:margin 0 20%
+		// :margin 0 20%
+		:justify-content center
+.learning-circle
+	:margin 0
+	:margin-left 50px
+	:border-radius 50%
+	:width 150px
+	:height 150px
+	:background-color white
+	:background-size cover
+	+display-for(xs sm)
+		:margin-left 0

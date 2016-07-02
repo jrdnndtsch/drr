@@ -53,8 +53,10 @@ img
 	:text-align center
 .main
 	:min-height 100vh
-	:background-size cover
-	:background-position center right
+	:background-size 100%
+	:background-position top right
+	:background-repeat no-repeat
+	:background-color black
 	:margin 0
 	:padding 20px
 .page
@@ -62,31 +64,22 @@ img
 	:min-height calc(100vh - 300px)
 	h1
 		:margin-bottom 60px
+		:text-transform uppercase
 	h1, h2
 		:font-size 25px
 		:font-weight normal
-		:text-transform uppercase
 .logged-in 
 	:margin 0
-.nav
-	:float right
-	:margin-right 5%
-	:margin-top 35px
-	ul
-		li 
-			:display inline-block
-			:padding 0 20px
-			&:last-of-type
-				:padding-right 0
-			a 
-				:color white
-				:font-size 20px
-				&:hover
-					:color $green
+
 .footer
 	:text-align center
 	:margin-bottom 20px
 	:margin-top 40px
+	.terms
+		:color white
+		:text-decoration underline
+		:display block
+		:margin 20px auto
 	ul
 		li 
 			:display inline-block
@@ -98,11 +91,11 @@ img
 			a 
 				:color white
 				&:hover 
-					:color $green
+					:color grey
 				i.fa
-					:font-size 22px
+					:font-size 30px
 					&:hover
-						:color $green
+						:color grey
 //grid columns
 $grid-base: 40
 
@@ -164,7 +157,23 @@ $grid-base: 40
 		@else if $screen == xs
 			@media screen and (max-width: 499px)
 				@content
-
+.nav
+	:float right
+	:margin-right 5%
+	:margin-top 35px
+	+display-for(sm xs)
+		:margin-bottom 15%
+	ul
+		li 
+			:display inline-block
+			:padding 0 20px
+			&:last-of-type
+				:padding-right 0
+			a 
+				:color white
+				:font-size 20px
+				&:hover
+					:color $green
 .wrapper
 	@extend %make-adaptive
 	:box-sizing border-box
@@ -211,6 +220,10 @@ $grid-base: 40
 				+make-column(30)
 			+display-for(xs)
 				+make-column(40)
+				+make-column(40)
+		&--twothirds
+			+make-column(26.67)
+			+display-for(sm xs)
 				+make-column(40)
 		&--half
 			+display-for(xl lg)
@@ -307,7 +320,7 @@ img.logo
 	:letter-spacing 1.4px	
 	:font-weight 100
 	:display inline-block
-	:text-transform uppercase
+	// :text-transform uppercase
 	:cursor pointer
 	// :transition all 0.5s
 	span 
@@ -322,10 +335,17 @@ a.button,
 .button--primary
 	:font-size 18px
 	:letter-spacing 1.5px
-	:text-transform uppercase
 	:padding 10px 50px	
+.button--primary-small
+	:font-size 16px
+	:letter-spacing 1.5px
+	:padding 10px 20px	
 .button--secondary
-	:padding 4px 8px 6px 10px
+	:font-size 18px
+	:letter-spacing 1.5px
+	:padding 10px 50px
+	:color $green !important
+	:background-color white
 i 
 	:transition all 0.5s
 	&:hover
