@@ -68,6 +68,6 @@ class LearningModulesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def learning_module_params
-      params.require(:learning_module).permit(:title, :description, :image)
+      params.require(:learning_module).permit(:title, :description, :image, :cta)
     end
 end

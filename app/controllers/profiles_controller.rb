@@ -35,6 +35,11 @@ class ProfilesController < ApplicationController
 	  @profile.user = current_user
 	  respond_to do |format|
 	    if @profile.save
+	    	begin
+	    	TestMailer.user_notification(current_user).deliver
+		    	rescue Errno::ECONNREFUSED
+		    	  logger.info "!!! Warning: Failed to deliver email, skipping"
+		    	end
 	      format.html { redirect_to root_path, notice: 'Profile was successfully created.' }
 	      format.json { render :show, status: :created, location: @profile }
 	    else

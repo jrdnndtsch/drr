@@ -25,7 +25,7 @@
 				</div>
 			</div>
 			<div class="field wrapper--flex">
-				<%= f.date_select(:birthday, :order => [:month, :day, :year], :prompt => { :month => 'Birthday Month', :day => 'Day',:year => 'Year' } ) %>
+				<%= f.date_select(:birthday, :order => [:month, :day, :year], :prompt => { :month => 'Birthday Month', :day => 'Day',:year => 'Year' },:start_year => 1940, :end_year => Time.now.year ) %>
 			</div>
 			<a href="#" class="button button--primary" id="next">next</a>
 		</div>

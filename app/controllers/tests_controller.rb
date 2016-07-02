@@ -11,11 +11,15 @@ class TestsController < ApplicationController
   # GET /tests/1.json
   def show
     if params[:score]
-    # raise "hell"
-      percentage = params[:score].to_i / params[:total_questions].to_i
-      if percentage > 0.8
+      percentage = params[:score].to_f / params[:total_questions].to_f
+      if percentage >= 0.8
+      # raise 'hell'
         UserTest.create(user_id: current_user.id, test_id: @test.id)
-        raise "hell"
+        begin
+          TestMailer.user_notification(current_user).deliver
+        rescue Errno::ECONNREFUSED
+          logger.info "!!! Warning: Failed to deliver email, skipping"
+        end
       else
         raise "hell failed"
       end

@@ -11,7 +11,7 @@
 				<div class="col--two center-text">
 					<div class="learning-area">
 					  <h2><%= learning_module.title %></h2>
-					  <%= link_to 'Learn More and Take Test', learning_module_path(learning_module), class: 'button button--primary-small'%>
+					  <%= link_to learning_module.cta, learning_module_path(learning_module), class: 'button button--primary-small'%>
 					</div>
 				</div>
 			<% end %>		
