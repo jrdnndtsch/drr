@@ -66,6 +66,8 @@ Rails.application.configure do
     :authentication => :plain,
   }
 
+config.action_mailer.default_url_options = { :host => 'arcane-ocean-65236.herokuapp.com',
+                                             :protocol => 'https' }
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
 
