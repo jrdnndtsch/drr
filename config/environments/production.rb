@@ -56,6 +56,7 @@ Rails.application.configure do
   }
 
   config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
   # SMTP settings for mailgun
   ActionMailer::Base.smtp_settings = {
     :port           => 587,
@@ -66,8 +67,7 @@ Rails.application.configure do
     :authentication => :plain,
   }
 
-config.action_mailer.default_url_options = { :host => 'arcane-ocean-65236.herokuapp.com',
-                                             :protocol => 'https' }
+config.action_mailer.default_url_options = { :host => 'arcane-ocean-65236.herokuapp.com' }
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
 
