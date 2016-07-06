@@ -72,7 +72,7 @@
 			var percentage = score / total_questions
 			var product = $('.test').data('product')
 			if(percentage >= 0.8){
-				words = '<h1 class="center-text">Congratulations!</h1> <p>You completed the test successfully!</p> <p>Your score: ' + percentage * 100 + '% </p> <p>Minimum passing mark: 80%</p> <p>We are so happy to have you part of the Dr Roebuck’s family, you will receive our bestseller ' + product + ', we hope you like it as much as we do!</p> <p>Your Dr Roebuck’s skin specialist will deliver it in store.</p><p>The first 200 beauty experts to complete our precious training will recieve a $50 Lululemon gift card.</p>'
+				words = '<h1 class="center-text">Congratulations!</h1> <p>You completed the test successfully!</p> <p>Your score: ' + percentage * 100 + '% </p> <p>Minimum passing mark: 80%</p> <p>We are so happy to have you part of the Dr Roebuck’s family, you will receive our bestseller ' + product + ', we hope you like it as much as we do!</p> <p>Your Dr Roebuck’s skin specialist will deliver it in store.</p><p>The first 200 beauty experts to complete our precious training will recieve a $50 Lululemon gift card.</p><p>Keep Learning!  Complete all modules in our courses section</p>'
 			} else {
 				var url = $('.test').data('test')
 				words = '<h1 class="center-text">Sorry, Beautiful. You didn\'t pass the test!</h1> <p>Your score: ' + percentage * 100 + '% </p> <p>Minimum passing mark: 80%</p> <p>Please restart the tests <a href="'+ url +'">HERE</a></p>'
