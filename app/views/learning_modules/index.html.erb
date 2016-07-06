@@ -1,6 +1,6 @@
 <div class="page">
 	<div class="wrapper learning-modules">
-		<h1 class="center-text">Discover New Training Modules Today</h1>
+		<h1 class="center-text">Discover our 4 compulsory modules today!</h1>
 		<div class="wrapper--flex learning-modules-wrapper">
 			<% @learning_modules.each do |learning_module| %>
 				<div class="col--two learning-circle-wrapper center-text">
@@ -11,6 +11,7 @@
 				<div class="col--two center-text">
 					<div class="learning-area">
 					  <h2><%= learning_module.title %></h2>
+					  <p class="small">To complete your Dr Roebuck’s training, please visit each module today!</p>
 					  <%= link_to learning_module.cta, learning_module_path(learning_module), class: 'button button--primary-small'%>
 					</div>
 				</div>
