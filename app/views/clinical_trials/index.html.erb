@@ -17,7 +17,7 @@
     <div class="wrapper--flex">
       <% @clinical_trials.each do |clinical_trial| %>
         <div class="col--three-margin center-text">
-          <%= link_to 'download', clinical_trial.pdf.url, target: '_blank', class: 'button button--primary'%>
+          <%= link_to 'Download', clinical_trial.pdf.url, target: '_blank', class: 'button button--primary'%>
         </div>
       <% end %>       
     </div>
