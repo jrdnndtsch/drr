@@ -7,7 +7,7 @@
 
     <div class="wrapper--flex">
       <% @videos.each do |video| %>
-        <div class="col--three-margin circle video" style="background-image: linear-gradient(to right, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 59%, rgba(255, 255, 255, 0.6) 100%), url(<%= video.image.url %>)" data-video="<%= video.link%>">
+        <div class="col--three-margin circle video library-skin" style="background-image: linear-gradient(to right, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 59%, rgba(255, 255, 255, 0.6) 100%), url(<%= video.image.url %>)" data-video="<%= video.link%>">
           <%= link_to video do %>
             <h2 class="center-absolute"><%= video.title %></h2>
           <% end %>
