@@ -7,6 +7,8 @@
 		<% if @learning_module.test.present? %>
 
 			<%= link_to 'Take the Test', @learning_module.test, class: 'button button--primary' %>
+		<% else %>
+			<p>Keep learning! See more modules and quizzes <%= link_to 'here', learning_modules_path %>.</p>
 		<% end %>
 
 	</div>

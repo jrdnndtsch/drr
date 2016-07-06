@@ -8,6 +8,7 @@
     <tr>
     	<th>Title</th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -16,6 +17,7 @@
       <tr>
         <td><%= trial.title %></td>
         <td class="table--button"><%= link_to 'Edit', edit_admin_clinical_trial_path(trial), class: 'button button--primary button--edit as--no-margin-bottom' %></td>
+        <td class="table--button"><%= link_to 'Delete',clinical_trial_path(trial), method: :delete, data: { confirm: 'Are you sure?' }, class: 'button button--primary button--delete as--no-margin-bottom' %></td>
       </tr>
     <% end %>
   </tbody>

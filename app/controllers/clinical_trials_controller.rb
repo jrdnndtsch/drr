@@ -56,7 +56,7 @@ class ClinicalTrialsController < ApplicationController
   def destroy
     @clinical_trial.destroy
     respond_to do |format|
-      format.html { redirect_to clinical_trials_url, notice: 'Clinical trial was successfully destroyed.' }
+      format.html { redirect_to admin_show_path, notice: 'Clinical trial was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

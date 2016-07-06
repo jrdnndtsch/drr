@@ -76,7 +76,7 @@ class TestsController < ApplicationController
   def destroy
     @test.destroy
     respond_to do |format|
-      format.html { redirect_to tests_url, notice: 'Test was successfully destroyed.' }
+      format.html { redirect_to admin_show_path, notice: 'Test was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

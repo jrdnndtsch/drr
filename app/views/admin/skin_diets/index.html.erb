@@ -8,6 +8,7 @@
     <tr>
       <th>Title</th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -16,6 +17,7 @@
       <tr>
         <td><%= diet.title %></td>
         <td class="table--button"><%= link_to 'Edit', edit_admin_skin_diet_path(diet), class: 'button button--primary button--edit as--no-margin-bottom' %></td>
+        <td class="table--button"><%= link_to 'Delete',skin_diet_path(diet), method: :delete, data: { confirm: 'Are you sure?' }, class: 'button button--primary button--delete as--no-margin-bottom' %></td>
       </tr>
     <% end %>
   </tbody>

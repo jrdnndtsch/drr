@@ -56,8 +56,9 @@ module Admin
     # DELETE /learning_modules/1.json
     def destroy
       @learning_module.destroy
+      raise 'hell'
       respond_to do |format|
-        format.html { redirect_to learning_modules_url, notice: 'Learning module was successfully destroyed.' }
+        format.html { redirect_to admin_show_path, notice: 'Learning module was successfully destroyed.' }
         format.json { head :no_content }
       end
     end

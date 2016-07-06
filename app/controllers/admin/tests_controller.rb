@@ -82,7 +82,7 @@ module Admin
 
       # Never trust parameters from the scary internet, only allow the white list through.
       def test_params
-        params.require(:test).permit(:name, :learning_module_id, questions_attributes:[ :id, :title, :test_id, :_destroy, answers_attributes:[:id, :title, :correct, :question_id, :_destroy]])
+        params.require(:test).permit(:name, :learning_module_id, :product, questions_attributes:[ :id, :title, :product, :test_id, :_destroy, answers_attributes:[:id, :title, :correct, :question_id, :_destroy]])
       end
   end
 end

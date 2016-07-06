@@ -55,7 +55,7 @@ class LearningModulesController < ApplicationController
   def destroy
     @learning_module.destroy
     respond_to do |format|
-      format.html { redirect_to learning_modules_url, notice: 'Learning module was successfully destroyed.' }
+      format.html { redirect_to admin_show_path, notice: 'Learning module was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

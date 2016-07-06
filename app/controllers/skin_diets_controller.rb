@@ -56,7 +56,7 @@ class SkinDietsController < ApplicationController
   def destroy
     @skin_diet.destroy
     respond_to do |format|
-      format.html { redirect_to skin_diets_url, notice: 'Skin diet was successfully destroyed.' }
+      format.html { redirect_to admin_show_path, notice: 'Skin diet was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

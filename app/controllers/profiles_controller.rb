@@ -36,7 +36,7 @@ class ProfilesController < ApplicationController
 	  respond_to do |format|
 	    if @profile.save
 	    	begin
-	    	TestMailer.user_notification(current_user).deliver
+	    	WelcomeMailer.welcome_notification(current_user).deliver
 		    	rescue Errno::ECONNREFUSED
 		    	  logger.info "!!! Warning: Failed to deliver email, skipping"
 		    	end

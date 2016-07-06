@@ -20,6 +20,8 @@ Rails.application.routes.draw do
 
    get 'questions/test_submission' => 'questions#test_submission'    
    get 'libraries' => 'pages#libraries'
+   get 'terms' => 'pages#terms'
+   get 'privacy' => 'pages#privacy'
 
    get 'admin/show'
 
