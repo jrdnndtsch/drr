@@ -9,7 +9,7 @@ class WelcomeMailer < ApplicationMailer
     @greeting = "Hi"
     @user = user
     if @user.profile
-      @username = user.profile.first_name +' '+ user.profile.last_name
+      @username = "#{user.profile.first_name} #{user.profile.last_name}"
     else
       @username = user.email
     end
