@@ -13,7 +13,7 @@ class TestMailer < ApplicationMailer
     else
       @username = user.email
     end
-    mail to: @user.email
+    mail to: @user.email, subject: "Thank you for completing this module!"
   end
 
 end
