@@ -4,7 +4,7 @@ class UserTest < ActiveRecord::Base
 
   def self.export_csv
     CSV.generate do |csv|
-    	column_names << ['store_number','first_name', 'last_name', 'address', 'city', 'provice', 'postal_code', 'country' ]
+    	column_names << ['store_number','first_name', 'last_name', 'address', 'city', 'province', 'postal_code', 'country' ]
     	column_names << ['name']
     	column_names << ['title']
     	column_names.flatten!

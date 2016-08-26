@@ -46,7 +46,7 @@
 					<%= f.text_field :years_experience, placeholder: 'Years of Experience?'%>
 				</div>
 				<div class="field col--two-margin">
-					<%= f.collection_select :province, Profile::SKIN_CONCERNS, :to_s, :to_s, {:prompt => 'Skin Concern'}%>
+					<%= f.collection_select :skin_concern, Profile::SKIN_CONCERNS, :to_s, :to_s, {:prompt => 'Skin Concern'}%>
 				</div>
 			</div>
 
